@@ -1,0 +1,128 @@
+body {
+  margin-top: 20px;
+}
+form {
+  text-align: center;
+}
+input {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 18px;
+}
+
+.city-input {
+  background-color: transparent;
+  border: solid;
+  border-color: #faefeb;
+  border-width: 1px;
+  border-radius: 4px;
+  color: #336e8c;
+}
+.submit {
+  background-color: #336e8c;
+  border: solid;
+  border-color: #faefeb;
+  border-radius: 4px;
+  transition: ease-in-out 200ms;
+  color: #faefeb;
+  box-shadow: 2px 2px 5px #336e8c;
+  border-width: 1px;
+}
+.submit:hover {
+  background-color: #faefeb;
+  color: #336e8c;
+}
+.location-button {
+  background-color: #336e8c;
+  border: solid;
+  border-color: #faefeb;
+  border-radius: 4px;
+  transition: ease-in-out 200ms;
+  color: #faefeb;
+  box-shadow: 2px 2px 5px #336e8c;
+  border-width: 1px;
+  padding: 1px 6px 4px;
+}
+.location-button:hover {
+  background-color: #faefeb;
+  color: #336e8c;
+}
+.arrow {
+  position: relative;
+  top: 2px;
+}
+
+.current-city {
+  text-transform: capitalize;
+}
+.current-time {
+  margin: 0;
+  font-size: 26px;
+}
+.weather-app {
+  background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+}
+hr {
+  margin: 8px;
+}
+.current-weather {
+  color: #336e8c;
+  text-align: center;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 20px;
+}
+.current-temp {
+  position: relative;
+  left: 20px;
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+.conditions {
+  font-weight: 500;
+  margin-top: 0;
+}
+.change-unit {
+  font-size: 20px;
+  position: relative;
+  top: -15px;
+}
+.unit {
+  text-decoration: none;
+  color: #336e8c;
+}
+.unit:hover {
+  text-decoration: underline;
+  color: #a9bbc9;
+}
+.emoji {
+  font-size: 70px;
+  line-height: 0;
+}
+.sky-description {
+  text-transform: capitalize;
+}
+.weekly-weather {
+  color: #336e8c;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  padding: 0;
+  text-align: center;
+  top: 30px;
+  background-color: transparent;
+  box-shadow: 2px 2px 5px;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 30px;
+  line-height: 1;
+}
+.weather-details {
+  font-weight: 600;
+}
+h1 {
+  margin: 10px 0 0;
+  font-size: 50px;
+}
+.weekly {
+  padding: 0;
+}

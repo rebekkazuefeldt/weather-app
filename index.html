@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/28763363c9.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card weather-app" style="max-width: 45rem">
+        <div class="card-body">
+          <form id="search-for-a-city">
+            <input
+              type="search"
+              class="city-input"
+              id="city-input"
+              placeholder="Search for a city"
+              autofocus="on"
+              autocomplete="off"
+            />
+            <input type="submit" class="submit" />
+            <button id="location-button" class="location-button">
+              <i class="fas fa-location-arrow arrow"></i>
+            </button>
+          </form>
+          <div class="row">
+            <div class="col-6 current-weather">
+              <h1 id="current-city" class="current-city">New York</h1>
+              <h2 id="current-time" class="current-time"></h2>
+              <hr />
+              <p class="current-temp">
+                <span id="fahrenheit-temp">63</span>°<span class="change-unit"
+                  ><a href="#" class="unit" id="fahrenheit">F</a> |
+                  <a href="#" class="unit" id="celcius">C</a></span
+                >
+              </p>
+              <p class="conditions">
+                <span class="emoji"> ☁️ </span><br /><span
+                  id="sky-description"
+                  class="sky-description"
+                  >Cloudy</span
+                >
+              </p>
+              <p>
+                H: <span id="high">48</span>° / L: <span id="low">36</span>°
+              </p>
+              <hr />
+              <div class="row">
+                <div class="col-4">
+                  <em> Chance of rain </em>
+                </div>
+                <div class="col-4">
+                  <em> Wind </em>
+                </div>
+                <div class="col-4">
+                  <em>Humidity</em>
+                </div>
+                <div class="col-4 weather-details">
+                  <span id="chance-of-rain">10</span>%
+                </div>
+                <div class="col-4 weather-details">
+                  <span id="wind">9</span> mph
+                </div>
+                <div class="col-4 weather-details">
+                  <span id="humidity">21</span>%
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <br />
+              <div class="card weekly-weather">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-4 weekly">
+                      <ul>
+                        <li>FRI</li>
+                        <br />
+                        <li>SAT</li>
+                        <br />
+                        <li>SUN</li>
+                        <br />
+                        <li>MON</li>
+                        <br />
+                        <li>TUE</li>
+                      </ul>
+                    </div>
+                    <div class="col-4 weekly">
+                      <ul>
+                        <li>☀️</li>
+                        <br />
+                        <li>⛅️</li>
+                        <br />
+                        <li>🌧</li>
+                        <br />
+                        <li>☀️</li>
+                        <br />
+                        <li>⛅️</li>
+                      </ul>
+                    </div>
+                    <div class="col-4 weekly">
+                      <ul>
+                        <li>64/39</li>
+                        <br />
+                        <li>68/39</li>
+                        <br />
+                        <li>61/52</li>
+                        <br />
+                        <li>64/45</li>
+                        <br />
+                        <li>68/46</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>

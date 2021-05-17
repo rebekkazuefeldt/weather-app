@@ -126,3 +126,8 @@ h1 {
 .weekly {
   padding: 0;
 }
+.open-source-link {
+  color: #336e8c;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 20px;
+}

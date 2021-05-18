@@ -1,5 +1,4 @@
 function showTemperature(response) {
-  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let fahrenheit = document.querySelector("#fahrenheit-temp");
   fahrenheit.innerHTML = temperature;
@@ -82,7 +81,7 @@ function formatDate(date) {
     minutes = `0${minutes}`;
   }
   let currentTime = `${hour}:${minutes}`;
-  return `${day} ${currentTime}`;
+  return `Last updated: ${day} ${currentTime}`;
 }
 let time = document.querySelector("#current-time");
 let date = new Date();

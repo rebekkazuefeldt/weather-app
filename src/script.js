@@ -1,5 +1,5 @@
 function showTemperature(response) {
-  console.log(response);
+  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let fahrenheit = document.querySelector("#fahrenheit-temp");
   fahrenheit.innerHTML = temperature;
@@ -9,7 +9,7 @@ function showTemperature(response) {
   let humidity = document.querySelector("#humidity");
   windSpeed.innerHTML = speed;
   humidity.innerHTML = humidityPercentage;
-  let weather = response.data.weather[0].main;
+  let weather = response.data.weather[0].description;
   let skyDescription = document.querySelector("#sky-description");
   skyDescription.innerHTML = weather;
   let currentCity = document.querySelector("#current-city");
@@ -20,6 +20,12 @@ function showTemperature(response) {
   let currentHigh = Math.round(response.data.main.temp_max);
   low.innerHTML = currentLow;
   high.innerHTML = currentHigh;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function showCurrentPosition(position) {

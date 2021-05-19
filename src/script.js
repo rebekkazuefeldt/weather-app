@@ -1,4 +1,5 @@
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let days = ["FRIDAY", "SATURDAY", "SUNDAY", "MONDAY", "TUESDAY"];
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = "";
@@ -21,6 +22,12 @@ function displayForecast() {
   });
 
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "2005b16f2536bde86914bfb6c901642a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showTemperature(response) {
@@ -51,6 +58,8 @@ function showTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
   fahrenheitTemp = response.data.main.temp;
+
+  getForecast(response.data.coord);
 }
 
 function showCurrentPosition(position) {
@@ -156,4 +165,3 @@ let date = new Date();
 time.innerHTML = formatDate(date);
 
 search("New York");
-displayForecast();

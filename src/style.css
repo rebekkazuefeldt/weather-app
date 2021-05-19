@@ -72,11 +72,21 @@ hr {
 }
 .current-temp {
   position: relative;
-  left: 20px;
-  font-size: 50px;
+  left: 30px;
+  font-size: 65px;
   margin-top: 30px;
   margin-bottom: 0;
   line-height: 20px;
+}
+.current-temp .active {
+  cursor: default;
+  font-size: 40px;
+  position: relative;
+  top: 10px;
+}
+.current-temp .active:hover {
+  color: #336e8c;
+  text-decoration: none;
 }
 .conditions {
   font-weight: 500;
@@ -84,9 +94,9 @@ hr {
   margin-bottom: 0;
 }
 .change-unit {
-  font-size: 20px;
+  font-size: 25px;
   position: relative;
-  top: -15px;
+  top: -30px;
 }
 .unit {
   text-decoration: none;

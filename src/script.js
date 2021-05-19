@@ -1,7 +1,7 @@
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
-  let fahrenheit = document.querySelector("#fahrenheit-temp");
-  fahrenheit.innerHTML = temperature;
+  let currentTemp = document.querySelector("#current-temp");
+  currentTemp.innerHTML = temperature;
   let speed = Math.round(response.data.wind.speed);
   let humidityPercentage = Math.round(response.data.main.humidity);
   let windSpeed = document.querySelector("#wind");
@@ -25,6 +25,7 @@ function showTemperature(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  fahrenheitTemp = response.data.main.temp;
 }
 
 function showCurrentPosition(position) {
@@ -59,7 +60,37 @@ currentLocation.addEventListener("click", locationSearch);
 let searchCity = document.querySelector("#search-for-a-city");
 searchCity.addEventListener("submit", handleSubmit);
 
-search("New York");
+function changeTemp(event) {
+  event.preventDefault();
+  let currentTemp = document.querySelector("#current-temp");
+  let newCurrentTemp = "17°";
+  currentTemp.innerHTML = newCurrentTemp;
+}
+//let celsius = document.querySelector("#celsius");
+//celsius.addEventListener("click", changeTemp);
+
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  let celsiusResult = ((fahrenheitTemp - 32) * 5) / 9;
+  let currentTemp = document.querySelector("#current-temp");
+  currentTemp.innerHTML = Math.round(celsiusResult);
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+}
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  let currentTemp = document.querySelector("#current-temp");
+  currentTemp.innerHTML = Math.round(fahrenheitTemp);
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+}
+
+let fahrenheitTemp = null;
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", showCelsiusTemp);
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
 function formatDate(date) {
   let days = [
@@ -87,22 +118,4 @@ let time = document.querySelector("#current-time");
 let date = new Date();
 time.innerHTML = formatDate(date);
 
-//function changeTemp(event) {
-//event.preventDefault();
-//let currentTemp = document.querySelector("#fahrenheit-temp");
-//let newCurrentTemp = "17°";
-//currentTemp.innerHTML = newCurrentTemp;
-//}
-
-//let celcius = document.querySelector("#celcius");
-//celcius.addEventListener("click", changeTemp);
-
-//function changeCurrentTemp(event) {
-//event.preventDefault();
-//let currentTemp = document.querySelector("#fahrenheit-temp");
-//let newCurrentTemp = "63°";
-//currentTemp.innerHTML = newCurrentTemp;
-//}
-
-//let fahrenheit = document.querySelector("#fahrenheit");
-//fahrenheit.addEventListener("click", changeCurrentTemp);
+search("New York");

@@ -1,3 +1,28 @@
+function displayForecast() {
+  let days = ["FRIDAY", "SATURDAY", "SUNDAY", "MONDAY", "TUESDAY"];
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = "";
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="row">
+                      <div class="class col-1"></div>
+                      <div class="col-4 weekly">${day}</div>
+                      <div class="col-2 weekly">
+                        <img
+                          src="https://openweathermap.org/img/wn/01d@2x.png"
+                          alt="sunny"
+                          class="forecast-icon"
+                        />
+                      </div>
+                      <div class="col-4 weekly">64°/39°</div>
+                      <div class="class col-1"></div>
+                    </div>`;
+  });
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#current-temp");
@@ -131,3 +156,4 @@ let date = new Date();
 time.innerHTML = formatDate(date);
 
 search("New York");
+displayForecast();

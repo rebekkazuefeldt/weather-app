@@ -2,7 +2,7 @@ function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#current-temp");
   currentTemp.innerHTML = temperature;
-  let speed = Math.round(response.data.wind.speed);
+  speed = Math.round(response.data.wind.speed);
   let humidityPercentage = Math.round(response.data.main.humidity);
   let windSpeed = document.querySelector("#wind");
   let humidity = document.querySelector("#humidity");
@@ -15,8 +15,8 @@ function showTemperature(response) {
   currentCity.innerHTML = response.data.name;
   let low = document.querySelector("#low");
   let high = document.querySelector("#high");
-  let currentLow = Math.round(response.data.main.temp_min);
-  let currentHigh = Math.round(response.data.main.temp_max);
+  currentLow = Math.round(response.data.main.temp_min);
+  currentHigh = Math.round(response.data.main.temp_max);
   low.innerHTML = currentLow;
   high.innerHTML = currentHigh;
   let iconElement = document.querySelector("#icon");
@@ -60,18 +60,19 @@ currentLocation.addEventListener("click", locationSearch);
 let searchCity = document.querySelector("#search-for-a-city");
 searchCity.addEventListener("submit", handleSubmit);
 
-function changeTemp(event) {
-  event.preventDefault();
-  let currentTemp = document.querySelector("#current-temp");
-  let newCurrentTemp = "17°";
-  currentTemp.innerHTML = newCurrentTemp;
-}
-//let celsius = document.querySelector("#celsius");
-//celsius.addEventListener("click", changeTemp);
-
 function showCelsiusTemp(event) {
   event.preventDefault();
   let celsiusResult = ((fahrenheitTemp - 32) * 5) / 9;
+  let lowResult = ((currentLow - 32) * 5) / 9;
+  let highResult = ((currentHigh - 32) * 5) / 9;
+  let tempLow = document.querySelector("#low");
+  let tempHigh = document.querySelector("#high");
+  let windSpeed = document.querySelector("#wind");
+  let speedUnit = document.querySelector("#speed-unit");
+  windSpeed.innerHTML = Math.round(speed * 1.609);
+  speedUnit.innerHTML = "kph";
+  tempLow.innerHTML = Math.round(lowResult);
+  tempHigh.innerHTML = Math.round(highResult);
   let currentTemp = document.querySelector("#current-temp");
   currentTemp.innerHTML = Math.round(celsiusResult);
   fahrenheitLink.classList.remove("active");
@@ -80,12 +81,23 @@ function showCelsiusTemp(event) {
 function showFahrenheitTemp(event) {
   event.preventDefault();
   let currentTemp = document.querySelector("#current-temp");
+  let tempLow = document.querySelector("#low");
+  let tempHigh = document.querySelector("#high");
+  let windSpeed = document.querySelector("#wind");
+  let speedUnit = document.querySelector("#speed-unit");
+  windSpeed.innerHTML = speed;
+  speedUnit.innerHTML = "mph";
+  tempLow.innerHTML = currentLow;
+  tempHigh.innerHTML = currentHigh;
   currentTemp.innerHTML = Math.round(fahrenheitTemp);
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
 }
-
+let speed = null;
+let currentLow = null;
+let currentHigh = null;
 let fahrenheitTemp = null;
+
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", showCelsiusTemp);
 

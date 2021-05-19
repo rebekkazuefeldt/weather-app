@@ -118,16 +118,9 @@ hr {
   font-family: "Yanone Kaffeesatz", sans-serif;
   padding: 0;
   text-align: center;
-  top: 30px;
+  top: 20px;
   background-color: transparent;
   box-shadow: 2px 2px 5px;
-}
-ul {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 0;
-  font-size: 30px;
-  line-height: 1;
 }
 .weather-details {
   font-weight: 600;
@@ -136,11 +129,21 @@ h1 {
   margin: 10px 0 0;
   font-size: 50px;
 }
-.weekly {
-  padding: 0;
-}
+
 .open-source-link {
   color: #336e8c;
   font-family: "Yanone Kaffeesatz", sans-serif;
   font-size: 18px;
+}
+.weekly {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 30px;
+  line-height: 60px;
+}
+.forecast-icon {
+  width: 50px;
+}
+.forecast-card {
+  padding: 16px 0 16px;
 }

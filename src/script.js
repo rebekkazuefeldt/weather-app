@@ -82,6 +82,7 @@ function showTemperature(response) {
   fahrenheitTemp = response.data.main.temp;
 
   getForecast(response.data.coord);
+  showFahrenheitTemp(event);
 }
 
 function showCurrentPosition(position) {
